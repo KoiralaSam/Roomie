@@ -1,0 +1,45 @@
+.sign-in {
+  font-family: Arial, sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+  }
+  .googleButton {
+    margin-top: 20px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    &:hover {
+      background-color: #357ae8;
+    }
+  }
+  .submitButton {
+    margin-top: 5px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    width: 75%;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    &:hover {
+      background-color: #357ae8;
+    }
+  }
+}

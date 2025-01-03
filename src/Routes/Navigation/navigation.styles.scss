@@ -1,0 +1,17 @@
+.navigation {
+  height: 60vh;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+  text-decoration: none;
+
+  .logoContainer {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    color: inherit;
+    text-decoration: none;
+  }
+}
