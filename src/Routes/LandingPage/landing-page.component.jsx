@@ -11,20 +11,16 @@ export default function LandingPage() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (currentUser) {
-      navigate("/home");
-    }
-  }, [currentUser]);
-
   return (
     <div className="landing-page">
       <header className="header">
         <h1>Welcome to Roomie</h1>
         <p>Find your Place</p>
         <h2>To get started, Login or SignUp</h2>
-        <Authentication />
       </header>
+      <div className="auth-container">
+        <Authentication />
+      </div>
       <section className="features">
         <div className="feature">
           <h2>Feature One</h2>
