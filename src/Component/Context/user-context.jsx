@@ -10,12 +10,13 @@ export const userContext = createContext({
 
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [create, setCreate] = useState(false);
 
   useEffect(() => {
     const unsubscribe = () =>
       onAuthStateChangedListner(async (user) => {
         if (user) {
-          await createUserDocumentFromAuth(user);
+          await createUserDocumentFromAuth(user, { posts: [] });
         }
         setCurrentUser(user);
       });
@@ -23,7 +24,9 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   return (
-    <userContext.Provider value={{ currentUser, setCurrentUser }}>
+    <userContext.Provider
+      value={{ currentUser, setCurrentUser, create, setCreate }}
+    >
       {children}
     </userContext.Provider>
   );

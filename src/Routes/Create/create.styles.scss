@@ -1,0 +1,60 @@
+.documentSelector {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 800px;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.documentSelector form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.documentSelector label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.documentSelector label:hover {
+  background-color: #0056b3;
+}
+
+.documentSelector button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.documentSelector button:hover {
+  background-color: #218838;
+}
+
+.documentSelector .file-info {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.documentSelector .file-info img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+}

@@ -6,7 +6,6 @@
 .nav-container {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
 
   .logoContainer {
     height: 100%;
@@ -26,7 +25,7 @@
     }
 
     .buttonContainer {
-      height: 60vh;
+      height: 40vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -50,14 +49,37 @@
   .main-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 0px;
+
     background-color: white;
 
     position: absolute;
-    right: 5px;
     left: 15%;
-    border-left: 1px solid white;
+    right: 0;
 
     overflow: scroll;
+
+    .create-container {
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+
+      top: 0;
+      right: 0;
+
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+
+      .close-button {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0);
+        top: 0;
+        right: 0;
+        border: none;
+      }
+    }
   }
 }

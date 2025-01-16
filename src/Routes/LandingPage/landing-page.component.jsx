@@ -1,16 +1,7 @@
-import React, { useEffect } from "react";
 import "./landing-page.styles.scss";
 import Authentication from "../Authentication/auth-component";
-import { useNavigate } from "react-router";
-import { userContext } from "../../Component/Context/user-context";
-import { useContext } from "react";
-import { signOutAuth } from "../../Utils/firebase-utils";
 
 export default function LandingPage() {
-  const { currentUser } = useContext(userContext);
-
-  const navigate = useNavigate();
-
   return (
     <div className="landing-page">
       <header className="header">

@@ -111,7 +111,7 @@ export const getPostAndDocuments = async () => {
   const querySnapshot = await getDocs(q);
   const postMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
     const { title, content } = docSnapshot.data();
-    acc[title.toLowerCase()] = content;
+    acc[title] = content;
     return acc;
   }, {});
   return postMap;

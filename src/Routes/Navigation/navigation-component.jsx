@@ -1,5 +1,5 @@
-import React from "react";
-import { Fragment } from "react";
+import React, { useState, useContext } from "react";
+import { userContext } from "../../Component/Context/user-context";
 import { Outlet, Link } from "react-router-dom";
 import { signOutAuth } from "../../Utils/firebase-utils";
 import "./navigation.styles.scss";
@@ -11,10 +11,17 @@ import SearchIcon from "@mui/icons-material/Search";
 import InfoIcon from "@mui/icons-material/Info";
 import ChatIcon from "@mui/icons-material/Chat";
 import LogoutIcon from "@mui/icons-material/Logout";
+import CloseIcon from "@mui/icons-material/Close";
 import { ReactComponent as RoomieLogo } from "../../Assets/RoomieLogo.svg";
+import Create from "../Create/create";
 
 export default function Navigation() {
+  const { create, setCreate } = useContext(userContext);
   const navigate = useNavigate();
+
+  const handleCreate = () => {
+    setCreate(!create);
+  };
   return (
     <div className="nav-container">
       <div className="sidebar">
@@ -22,8 +29,7 @@ export default function Navigation() {
           <RoomieLogo />
         </div>
         <div className="buttonContainer">
-          <button className="nav-buttons">
-            <Link to="/home" />
+          <button className="nav-buttons" onClick={() => navigate("/home")}>
             <HomeIcon />
           </button>
 
@@ -34,9 +40,9 @@ export default function Navigation() {
               flexDirection: "column",
               alignItems: "center",
             }}
+            onClick={handleCreate}
           >
             <AddCircleOutlineIcon />
-            <Link to="/create">Create</Link>
           </button>
 
           <button
@@ -99,6 +105,14 @@ export default function Navigation() {
         </div>
       </div>
       <div className="main-content">
+        {create && (
+          <div className="create-container">
+            <button className="close-button" onClick={handleCreate}>
+              <CloseIcon />
+            </button>
+            <Create />
+          </div>
+        )}
         <Outlet />
       </div>
     </div>

@@ -42,6 +42,7 @@ const ExpandMore = styled((props) => {
 export default function PostedCard({ post }) {
   const {
     userId,
+    userName,
     imageUrl,
     createdAt,
     likes,
@@ -56,7 +57,7 @@ export default function PostedCard({ post }) {
   };
 
   return (
-    <Card sx={{ maxWidth: 445 }}>
+    <Card sx={{ maxWidth: 800 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -68,14 +69,15 @@ export default function PostedCard({ post }) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={userId}
+        title={userName}
         subheader={createdAt}
       />
       <CardMedia
         component="img"
-        height="194"
+        height="auto"
         image={imageUrl}
         alt={description}
+        sx={{ width: "100%", objectFit: "cover" }}
       />
       <CardContent>
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
@@ -103,21 +105,26 @@ export default function PostedCard({ post }) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          {comments.map(({ object }) => {
-            const { userId = "", createdAt = "", comment = "" } = object;
+          {comments.map((commentObj) => {
+            if (!commentObj) return null;
             return (
               <CardContent>
-                <CardHeader>
-                  avatar=
-                  {
-                    <Avatar sx={{ bgcolor: red[200] }} aria-label="recipe">
-                      {userId}
+                <CardHeader
+                  avatar={
+                    <Avatar sx={{ bgcolor: red[200] }} aria-label="comment">
+                      A
                     </Avatar>
                   }
-                  subheader={createdAt}
-                </CardHeader>
+                  action={
+                    <IconButton aria-label="settings">
+                      <MoreVertIcon />
+                    </IconButton>
+                  }
+                  title={commentObj.userId}
+                  subheader={commentObj.createdAt}
+                />
                 <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                  {comment}
+                  {commentObj.comment}
                 </Typography>
               </CardContent>
             );
